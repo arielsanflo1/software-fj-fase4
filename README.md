@@ -2,9 +2,10 @@
 
 Sistema académico de clientes, servicios y reservas para Programación (213023),
 Ingeniería de Sistemas, UNAD. Implementa POO y manejo de excepciones sin bases
-de datos. Desarrollo individual de la cuenta `arielsanflo1`, con asistencia de
-Codex para implementación, documentación y comprobación. El estudiante debe
-revisar, comprender y adaptar la solución antes de presentarla.
+de datos.
+
+**Responsable:** Ariel Sandoval Florez (`arielsanflo1`).
+**Grupo:** 213023_109. **Tutor:** Jaider Lineros.
 
 ## Ejecutar en Windows
 
@@ -76,10 +77,11 @@ Cancelar o procesar libera el recurso. Ver el alcance completo en
 
 ## Estado de entrega
 
-Esta es una primera versión técnica para revisión. Falta preparar el informe
-Word/PDF con datos de portada, revisar la documentación línea por línea y
-confirmar en el campus el formato final (la guía pide PDF y una descripción
-menciona comprimido con `.ipynb`). No se simula trabajo de cinco integrantes.
+La implementación cuenta con 34 casos comprobados y 13 pruebas automatizadas.
+El informe académico se preparó en Word y PDF con formato APA 7 y se conserva
+por separado. Antes de entregar, falta revisar la documentación línea por línea
+y confirmar en el campus el formato final: la guía pide PDF y una descripción
+menciona comprimido con `.ipynb`. El desarrollo se presenta de forma individual.
 
 ## Materiales de la actividad
 
