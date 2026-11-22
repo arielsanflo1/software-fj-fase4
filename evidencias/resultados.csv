@@ -1,0 +1,35 @@
+﻿caso,esperado,obtenido,cumple
+01 Registrar cliente válido,Éxito,Éxito,True
+02 Rechazar correo inválido,DatoInvalido,DatoInvalido,True
+03 Registrar cliente tras error,Éxito,Éxito,True
+04 Rechazar cliente duplicado,Duplicado,Duplicado,True
+05 Rechazar parámetros faltantes,TypeError,TypeError,True
+06 Registrar sala,Éxito,Éxito,True
+07 Rechazar tarifa negativa,DatoInvalido,DatoInvalido,True
+08 Registrar equipos,Éxito,Éxito,True
+09 Rechazar especialidad vacía,DatoInvalido,DatoInvalido,True
+10 Registrar asesoría,Éxito,Éxito,True
+11 Rechazar capacidad inválida,DatoInvalido,DatoInvalido,True
+12 Registrar servicio deshabilitado,Éxito,Éxito,True
+13 Rechazar servicio no disponible,ServicioNoDisponible,ServicioNoDisponible,True
+14 Rechazar cliente inexistente,NoEncontrado,NoEncontrado,True
+15 Rechazar duración negativa,DatoInvalido,DatoInvalido,True
+16 Crear reserva de sala,Éxito,Éxito,True
+17 Confirmar reserva de sala,Éxito,Éxito,True
+18 Crear segunda solicitud de sala,Éxito,Éxito,True
+19 Rechazar ocupación simultánea,ServicioNoDisponible,ServicioNoDisponible,True
+20 Rechazar impuesto inválido,DatoInvalido,DatoInvalido,True
+21 Procesar sala tras error: COP 107100,Éxito,Éxito,True
+22 Confirmar sala liberada,Éxito,Éxito,True
+23 Cancelar reserva confirmada,Éxito,Éxito,True
+24 Rechazar procesamiento cancelado,OperacionNoPermitida,OperacionNoPermitida,True
+25 Crear reserva de equipos,Éxito,Éxito,True
+26 Confirmar equipos,Éxito,Éxito,True
+27 Procesar equipos: COP 60000,Éxito,Éxito,True
+28 Crear reserva de asesoría,Éxito,Éxito,True
+29 Confirmar asesoría,Éxito,Éxito,True
+30 Procesar asesoría: COP 120000,Éxito,Éxito,True
+31 Rechazar conversión numérica,DatoInvalido,DatoInvalido,True
+32 Rechazar cálculo no finito,DatoInvalido,DatoInvalido,True
+33 Rechazar descuento excesivo,DatoInvalido,DatoInvalido,True
+34 Operación válida final: COP 50000,Éxito,Éxito,True

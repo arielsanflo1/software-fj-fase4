@@ -221,3 +221,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Eventos locales; la muestra revisable se conserva en evidencias/.
+logs/
+.ipynb_checkpoints/
