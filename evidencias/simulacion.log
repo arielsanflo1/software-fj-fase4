@@ -1,0 +1,313 @@
+# Muestra de ejecución: rutas absolutas del equipo omitidas por privacidad; se conservan eventos, errores y referencias de código.
+2026-11-22 14:15:05,000 | INFO | LOG_LISTO: evidencias\simulacion.log
+2026-11-22 14:15:05,000 | INFO | INICIO | 01 Registrar cliente válido
+2026-11-22 14:15:05,001 | INFO | EXITO | 01 Registrar cliente válido
+2026-11-22 14:15:05,001 | INFO | FIN | 01 Registrar cliente válido
+2026-11-22 14:15:05,001 | INFO | INICIO | 02 Rechazar correo inválido
+2026-11-22 14:15:05,001 | ERROR | ERROR_CONTROLADO | 02 Rechazar correo inválido | DatoInvalido
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 34, in <lambda>
+    caso('02 Rechazar correo inválido', lambda: sistema.registrar_cliente(
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        'C2', 'Luis Ejemplo', 'correo-invalido', '3001234568'), DatoInvalido)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 325, in registrar_cliente
+    return self._agregar(self.__clientes, Cliente(identificador, nombre, correo, telefono))
+                                          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 91, in __init__
+    self.actualizar_contacto(correo, telefono)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 110, in actualizar_contacto
+    raise DatoInvalido('Correo: formato inválido.')
+software_fj.modelo.DatoInvalido: Correo: formato inválido.
+2026-11-22 14:15:05,003 | INFO | FIN | 02 Rechazar correo inválido
+2026-11-22 14:15:05,003 | INFO | INICIO | 03 Registrar cliente tras error
+2026-11-22 14:15:05,003 | INFO | EXITO | 03 Registrar cliente tras error
+2026-11-22 14:15:05,003 | INFO | FIN | 03 Registrar cliente tras error
+2026-11-22 14:15:05,003 | INFO | INICIO | 04 Rechazar cliente duplicado
+2026-11-22 14:15:05,003 | ERROR | ERROR_CONTROLADO | 04 Rechazar cliente duplicado | Duplicado
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 38, in <lambda>
+    caso('04 Rechazar cliente duplicado', lambda: sistema.registrar_cliente(
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        'C1', 'Ana Ejemplo', 'ana@example.com', '3001234567'), Duplicado)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 325, in registrar_cliente
+    return self._agregar(self.__clientes, Cliente(identificador, nombre, correo, telefono))
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 320, in _agregar
+    raise Duplicado(f'Identificador duplicado: {objeto.identificador}.')
+software_fj.modelo.Duplicado: Identificador duplicado: C1.
+2026-11-22 14:15:05,003 | INFO | FIN | 04 Rechazar cliente duplicado
+2026-11-22 14:15:05,003 | INFO | INICIO | 05 Rechazar parámetros faltantes
+2026-11-22 14:15:05,003 | ERROR | ERROR_INESPERADO | 05 Rechazar parámetros faltantes | TypeError
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 40, in <lambda>
+    caso('05 Rechazar parámetros faltantes', lambda: sistema.registrar_cliente('C3'), TypeError)
+                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+TypeError: Sistema.registrar_cliente() missing 3 required positional arguments: 'nombre', 'correo', and 'telefono'
+2026-11-22 14:15:05,004 | INFO | FIN | 05 Rechazar parámetros faltantes
+2026-11-22 14:15:05,004 | INFO | INICIO | 06 Registrar sala
+2026-11-22 14:15:05,004 | INFO | EXITO | 06 Registrar sala
+2026-11-22 14:15:05,004 | INFO | FIN | 06 Registrar sala
+2026-11-22 14:15:05,004 | INFO | INICIO | 07 Rechazar tarifa negativa
+2026-11-22 14:15:05,004 | ERROR | ERROR_CONTROLADO | 07 Rechazar tarifa negativa | DatoInvalido
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 43, in <lambda>
+    Equipo('E0', 'Inválido', -1, 1)), DatoInvalido)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 191, in __init__
+    super().__init__(identificador, nombre, tarifa, disponible)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 126, in __init__
+    self.__tarifa = numero(tarifa, 'Tarifa', estricto=True)
+                    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 56, in numero
+    raise DatoInvalido(f"{campo}: valor inferior al límite permitido.")
+software_fj.modelo.DatoInvalido: Tarifa: valor inferior al límite permitido.
+2026-11-22 14:15:05,004 | INFO | FIN | 07 Rechazar tarifa negativa
+2026-11-22 14:15:05,004 | INFO | INICIO | 08 Registrar equipos
+2026-11-22 14:15:05,004 | INFO | EXITO | 08 Registrar equipos
+2026-11-22 14:15:05,004 | INFO | FIN | 08 Registrar equipos
+2026-11-22 14:15:05,004 | INFO | INICIO | 09 Rechazar especialidad vacía
+2026-11-22 14:15:05,004 | ERROR | ERROR_CONTROLADO | 09 Rechazar especialidad vacía | DatoInvalido
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 46, in <lambda>
+    Asesoria('A0', 'Inválida', 80000, ' ')), DatoInvalido)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 210, in __init__
+    self.__especialidad = texto(especialidad, 'Especialidad')
+                          ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 40, in texto
+    raise DatoInvalido(f"{campo}: se requiere texto no vacío.")
+software_fj.modelo.DatoInvalido: Especialidad: se requiere texto no vacío.
+2026-11-22 14:15:05,004 | INFO | FIN | 09 Rechazar especialidad vacía
+2026-11-22 14:15:05,004 | INFO | INICIO | 10 Registrar asesoría
+2026-11-22 14:15:05,004 | INFO | EXITO | 10 Registrar asesoría
+2026-11-22 14:15:05,004 | INFO | FIN | 10 Registrar asesoría
+2026-11-22 14:15:05,004 | INFO | INICIO | 11 Rechazar capacidad inválida
+2026-11-22 14:15:05,004 | ERROR | ERROR_CONTROLADO | 11 Rechazar capacidad inválida | DatoInvalido
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 48, in <lambda>
+    caso('11 Rechazar capacidad inválida', lambda: Sala('S0', 'Inválida', 100, 0), DatoInvalido)
+                                                   ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 174, in __init__
+    self.__capacidad = entero_positivo(capacidad, 'Capacidad')
+                       ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 65, in entero_positivo
+    raise DatoInvalido(f"{campo}: se requiere un entero positivo.")
+software_fj.modelo.DatoInvalido: Capacidad: se requiere un entero positivo.
+2026-11-22 14:15:05,005 | INFO | FIN | 11 Rechazar capacidad inválida
+2026-11-22 14:15:05,005 | INFO | INICIO | 12 Registrar servicio deshabilitado
+2026-11-22 14:15:05,005 | INFO | EXITO | 12 Registrar servicio deshabilitado
+2026-11-22 14:15:05,005 | INFO | FIN | 12 Registrar servicio deshabilitado
+2026-11-22 14:15:05,005 | INFO | INICIO | 13 Rechazar servicio no disponible
+2026-11-22 14:15:05,005 | ERROR | ERROR_CONTROLADO | 13 Rechazar servicio no disponible | ServicioNoDisponible
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 51, in <lambda>
+    caso('13 Rechazar servicio no disponible', lambda: sistema.crear_reserva(
+                                                       ~~~~~~~~~~~~~~~~~~~~~^
+        'R0', 'C1', 'S2', 1), ServicioNoDisponible)
+        ^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 336, in crear_reserva
+    raise ServicioNoDisponible('El servicio solicitado está deshabilitado.')
+software_fj.modelo.ServicioNoDisponible: El servicio solicitado está deshabilitado.
+2026-11-22 14:15:05,005 | INFO | FIN | 13 Rechazar servicio no disponible
+2026-11-22 14:15:05,005 | INFO | INICIO | 14 Rechazar cliente inexistente
+2026-11-22 14:15:05,005 | ERROR | ERROR_CONTROLADO | 14 Rechazar cliente inexistente | NoEncontrado
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 53, in <lambda>
+    caso('14 Rechazar cliente inexistente', lambda: sistema.crear_reserva(
+                                                    ~~~~~~~~~~~~~~~~~~~~~^
+        'R0', 'C9', 'S1', 1), NoEncontrado)
+        ^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 333, in crear_reserva
+    cliente = self._buscar(self.__clientes, cliente_id)
+  File "software_fj\modelo.py", line 315, in _buscar
+    raise NoEncontrado(f'No existe la entidad {clave}.')
+software_fj.modelo.NoEncontrado: No existe la entidad C9.
+2026-11-22 14:15:05,005 | INFO | FIN | 14 Rechazar cliente inexistente
+2026-11-22 14:15:05,005 | INFO | INICIO | 15 Rechazar duración negativa
+2026-11-22 14:15:05,005 | ERROR | ERROR_CONTROLADO | 15 Rechazar duración negativa | DatoInvalido
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 55, in <lambda>
+    caso('15 Rechazar duración negativa', lambda: sistema.crear_reserva(
+                                                  ~~~~~~~~~~~~~~~~~~~~~^
+        'R0', 'C1', 'S1', -2), DatoInvalido)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 337, in crear_reserva
+    return self._agregar(self.__reservas, Reserva(identificador, cliente, servicio, duracion))
+                                          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 237, in __init__
+    self.__duracion = servicio.validar_parametros(duracion)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "software_fj\modelo.py", line 177, in validar_parametros
+    return numero(duracion, 'Horas de sala', maximo=Decimal('8'), estricto=True)
+  File "software_fj\modelo.py", line 56, in numero
+    raise DatoInvalido(f"{campo}: valor inferior al límite permitido.")
+software_fj.modelo.DatoInvalido: Horas de sala: valor inferior al límite permitido.
+2026-11-22 14:15:05,006 | INFO | FIN | 15 Rechazar duración negativa
+2026-11-22 14:15:05,006 | INFO | INICIO | 16 Crear reserva de sala
+2026-11-22 14:15:05,006 | INFO | EXITO | 16 Crear reserva de sala
+2026-11-22 14:15:05,006 | INFO | FIN | 16 Crear reserva de sala
+2026-11-22 14:15:05,006 | INFO | INICIO | 17 Confirmar reserva de sala
+2026-11-22 14:15:05,006 | INFO | EXITO | 17 Confirmar reserva de sala
+2026-11-22 14:15:05,006 | INFO | FIN | 17 Confirmar reserva de sala
+2026-11-22 14:15:05,006 | INFO | INICIO | 18 Crear segunda solicitud de sala
+2026-11-22 14:15:05,006 | INFO | EXITO | 18 Crear segunda solicitud de sala
+2026-11-22 14:15:05,006 | INFO | FIN | 18 Crear segunda solicitud de sala
+2026-11-22 14:15:05,006 | INFO | INICIO | 19 Rechazar ocupación simultánea
+2026-11-22 14:15:05,006 | ERROR | ERROR_CONTROLADO | 19 Rechazar ocupación simultánea | ServicioNoDisponible
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 60, in <lambda>
+    caso('19 Rechazar ocupación simultánea', lambda: sistema.confirmar_reserva('R2'), ServicioNoDisponible)
+                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "software_fj\modelo.py", line 343, in confirmar_reserva
+    raise ServicioNoDisponible('El servicio ya tiene una reserva confirmada activa.')
+software_fj.modelo.ServicioNoDisponible: El servicio ya tiene una reserva confirmada activa.
+2026-11-22 14:15:05,006 | INFO | FIN | 19 Rechazar ocupación simultánea
+2026-11-22 14:15:05,006 | INFO | INICIO | 20 Rechazar impuesto inválido
+2026-11-22 14:15:05,006 | ERROR | ERROR_CONTROLADO | 20 Rechazar impuesto inválido | DatoInvalido
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 61, in <lambda>
+    caso('20 Rechazar impuesto inválido', lambda: sistema.procesar_reserva('R1', impuesto=2), DatoInvalido)
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 354, in procesar_reserva
+    return reserva.procesar(impuesto=impuesto, descuento=descuento)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 276, in procesar
+    total = self.servicio.calcular_costo(
+        self.__duracion, impuesto=impuesto, descuento=descuento)
+  File "software_fj\modelo.py", line 181, in calcular_costo
+    return self._total(self.tarifa * horas, impuesto, descuento)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 163, in _total
+    tasa = numero(impuesto, 'Impuesto', maximo=Decimal('1'))
+  File "software_fj\modelo.py", line 58, in numero
+    raise DatoInvalido(f"{campo}: supera el límite {maximo}.")
+software_fj.modelo.DatoInvalido: Impuesto: supera el límite 1.
+2026-11-22 14:15:05,007 | INFO | FIN | 20 Rechazar impuesto inválido
+2026-11-22 14:15:05,007 | INFO | INICIO | 21 Procesar sala tras error: COP 107100
+2026-11-22 14:15:05,007 | INFO | EXITO | 21 Procesar sala tras error: COP 107100
+2026-11-22 14:15:05,007 | INFO | FIN | 21 Procesar sala tras error: COP 107100
+2026-11-22 14:15:05,007 | INFO | INICIO | 22 Confirmar sala liberada
+2026-11-22 14:15:05,007 | INFO | EXITO | 22 Confirmar sala liberada
+2026-11-22 14:15:05,007 | INFO | FIN | 22 Confirmar sala liberada
+2026-11-22 14:15:05,007 | INFO | INICIO | 23 Cancelar reserva confirmada
+2026-11-22 14:15:05,007 | INFO | EXITO | 23 Cancelar reserva confirmada
+2026-11-22 14:15:05,007 | INFO | FIN | 23 Cancelar reserva confirmada
+2026-11-22 14:15:05,007 | INFO | INICIO | 24 Rechazar procesamiento cancelado
+2026-11-22 14:15:05,007 | ERROR | ERROR_CONTROLADO | 24 Rechazar procesamiento cancelado | OperacionNoPermitida
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 66, in <lambda>
+    caso('24 Rechazar procesamiento cancelado', lambda: sistema.procesar_reserva('R2'), OperacionNoPermitida)
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "software_fj\modelo.py", line 354, in procesar_reserva
+    return reserva.procesar(impuesto=impuesto, descuento=descuento)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 272, in procesar
+    raise OperacionNoPermitida('Solo se procesa una reserva confirmada.')
+software_fj.modelo.OperacionNoPermitida: Solo se procesa una reserva confirmada.
+2026-11-22 14:15:05,007 | INFO | FIN | 24 Rechazar procesamiento cancelado
+2026-11-22 14:15:05,007 | INFO | INICIO | 25 Crear reserva de equipos
+2026-11-22 14:15:05,007 | INFO | EXITO | 25 Crear reserva de equipos
+2026-11-22 14:15:05,007 | INFO | FIN | 25 Crear reserva de equipos
+2026-11-22 14:15:05,007 | INFO | INICIO | 26 Confirmar equipos
+2026-11-22 14:15:05,007 | INFO | EXITO | 26 Confirmar equipos
+2026-11-22 14:15:05,007 | INFO | FIN | 26 Confirmar equipos
+2026-11-22 14:15:05,007 | INFO | INICIO | 27 Procesar equipos: COP 60000
+2026-11-22 14:15:05,007 | INFO | EXITO | 27 Procesar equipos: COP 60000
+2026-11-22 14:15:05,007 | INFO | FIN | 27 Procesar equipos: COP 60000
+2026-11-22 14:15:05,007 | INFO | INICIO | 28 Crear reserva de asesoría
+2026-11-22 14:15:05,007 | INFO | EXITO | 28 Crear reserva de asesoría
+2026-11-22 14:15:05,007 | INFO | FIN | 28 Crear reserva de asesoría
+2026-11-22 14:15:05,007 | INFO | INICIO | 29 Confirmar asesoría
+2026-11-22 14:15:05,007 | INFO | EXITO | 29 Confirmar asesoría
+2026-11-22 14:15:05,007 | INFO | FIN | 29 Confirmar asesoría
+2026-11-22 14:15:05,007 | INFO | INICIO | 30 Procesar asesoría: COP 120000
+2026-11-22 14:15:05,007 | INFO | EXITO | 30 Procesar asesoría: COP 120000
+2026-11-22 14:15:05,007 | INFO | FIN | 30 Procesar asesoría: COP 120000
+2026-11-22 14:15:05,007 | INFO | INICIO | 31 Rechazar conversión numérica
+2026-11-22 14:15:05,007 | ERROR | ERROR_CONTROLADO | 31 Rechazar conversión numérica | DatoInvalido
+Traceback (most recent call last):
+  File "software_fj\modelo.py", line 49, in numero
+    resultado = Decimal(str(valor))
+decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 75, in <lambda>
+    caso('31 Rechazar conversión numérica', lambda: sala.calcular_costo('dos'), DatoInvalido,
+                                                    ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "software_fj\modelo.py", line 180, in calcular_costo
+    horas = self.validar_parametros(duracion)
+  File "software_fj\modelo.py", line 177, in validar_parametros
+    return numero(duracion, 'Horas de sala', maximo=Decimal('8'), estricto=True)
+  File "software_fj\modelo.py", line 52, in numero
+    raise DatoInvalido(f"{campo}: debe ser numérico.") from causa
+software_fj.modelo.DatoInvalido: Horas de sala: debe ser numérico.
+2026-11-22 14:15:05,008 | INFO | FIN | 31 Rechazar conversión numérica
+2026-11-22 14:15:05,008 | INFO | INICIO | 32 Rechazar cálculo no finito
+2026-11-22 14:15:05,008 | ERROR | ERROR_CONTROLADO | 32 Rechazar cálculo no finito | DatoInvalido
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 77, in <lambda>
+    caso('32 Rechazar cálculo no finito', lambda: sala.calcular_costo('NaN'), DatoInvalido)
+                                                  ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "software_fj\modelo.py", line 180, in calcular_costo
+    horas = self.validar_parametros(duracion)
+  File "software_fj\modelo.py", line 177, in validar_parametros
+    return numero(duracion, 'Horas de sala', maximo=Decimal('8'), estricto=True)
+  File "software_fj\modelo.py", line 54, in numero
+    raise DatoInvalido(f"{campo}: debe ser un número finito.")
+software_fj.modelo.DatoInvalido: Horas de sala: debe ser un número finito.
+2026-11-22 14:15:05,008 | INFO | FIN | 32 Rechazar cálculo no finito
+2026-11-22 14:15:05,008 | INFO | INICIO | 33 Rechazar descuento excesivo
+2026-11-22 14:15:05,008 | ERROR | ERROR_CONTROLADO | 33 Rechazar descuento excesivo | DatoInvalido
+Traceback (most recent call last):
+  File "software_fj\ejecucion.py", line 60, in ejecutar
+    valor = operacion()
+  File "software_fj\simulaciones.py", line 78, in <lambda>
+    caso('33 Rechazar descuento excesivo', lambda: sala.calcular_costo(1, descuento='1.01'), DatoInvalido)
+                                                   ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 181, in calcular_costo
+    return self._total(self.tarifa * horas, impuesto, descuento)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "software_fj\modelo.py", line 164, in _total
+    rebaja = numero(descuento, 'Descuento', maximo=Decimal('1'))
+  File "software_fj\modelo.py", line 58, in numero
+    raise DatoInvalido(f"{campo}: supera el límite {maximo}.")
+software_fj.modelo.DatoInvalido: Descuento: supera el límite 1.
+2026-11-22 14:15:05,008 | INFO | FIN | 33 Rechazar descuento excesivo
+2026-11-22 14:15:05,009 | INFO | INICIO | 34 Operación válida final: COP 50000
+2026-11-22 14:15:05,009 | INFO | EXITO | 34 Operación válida final: COP 50000
+2026-11-22 14:15:05,009 | INFO | FIN | 34 Operación válida final: COP 50000
+2026-11-22 14:15:05,009 | INFO | RESUMEN | 34/34 casos cumplieron lo esperado
